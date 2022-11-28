@@ -1,24 +1,48 @@
 import React from "react";
+import { useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
+	
+	const [shadow, setShadow] = useState("");
+	console.log(shadow);
+
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div>
+			<div className="trafficTop container d-flex justify-content-center"></div>
+			<div className="caja container d-flex justify-content-center">
+				<div className="row row-cols-1 mt-1 mb-1">
+					<div
+						className="d-flex justify-content-center redlight col"
+						onClick={() => setShadow("red")}>
+						<button
+							className={
+								"button btn btn-danger disabled" +
+								" " +
+								(shadow === "red" ? "buttonshadow" : "")
+							}></button>
+					</div>
+					<div
+						className="d-flex justify-content-center yellowlight col"
+						onClick={() => setShadow("yellow")}>
+						<button
+							className={
+								"button btn btn-warning disabled" +
+								" " +
+								(shadow === "yellow" ? "buttonshadow" : "")
+							}></button>
+					</div>
+					<div
+						className="d-flex justify-content-center greenlight col"
+						onClick={() => setShadow("green")}>
+						<button
+							className={
+								"button btn btn-success disabled" +
+								" " +
+								(shadow === "green" ? "buttonshadow" : "")
+							}></button>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };
